@@ -50,27 +50,28 @@ function versionWithNumbers () {
 		showTotal(priceWithoutDeliveryCost + deliveryCost);
 }
 
-    function versionWithStringsAndStartsWith() {
+function versionWithStringsAndStartsWith() {
 	const zipCode = document.getElementById('zip-code').value;
 	console.log(typeof zipCode);
 	let deliveryCost;
 
 
 	// si el número de caracteres de zipCode es distinto de 5
-		if (zipCode.length !== 5 || zipCode.startsWith('0')) {
-			showBadZipFormat();
-			return;
-		}
-		if (zipCode.startsWith('10')) {
-			deliveryCost = 0;
-		} else if (zipCode.startsWith('1') || zipCode.startsWith('2') || zipCode.startsWith('3') || zipCode.startsWith('4') || zipCode.startsWith('5')) {
-			deliveryCost = 2;
-		} else if (zipCode.startsWith('6') || zipCode.startsWith('7') || zipCode.startsWith('8')) {
-			deliveryCost = 3;
-		} else {
-			deliveryCost = 5;
-		}
+	if (zipCode.length !== 5 || zipCode.startsWith('0')) {
+		showBadZipFormat();
+		return;
+	}
 
-		showDeliveryCost(deliveryCost);
-		showTotal(priceWithoutDeliveryCost + deliveryCost);
+	if (zipCode.startsWith('10')) {
+		deliveryCost = 0;
+	} else if (zipCode.startsWith('1') || zipCode.startsWith('2') || zipCode.startsWith('3') || zipCode.startsWith('4') || zipCode.startsWith('5')) {
+		deliveryCost = 2;
+	} else if (zipCode.startsWith('6') || zipCode.startsWith('7') || zipCode.startsWith('8')) {
+		deliveryCost = 3;
+	} else {
+		deliveryCost = 5;
+	}
+
+	showDeliveryCost(deliveryCost);
+	showTotal(priceWithoutDeliveryCost + deliveryCost);
 }
